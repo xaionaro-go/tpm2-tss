@@ -51,7 +51,8 @@ TRANSLATOR:
   ConstRules:
     defines: eval
   PtrTips:
-    function: []
+    function:
+      - {target: ".*", tips: [ref]}
   Rules:
     global:
       - {transform: lower}
