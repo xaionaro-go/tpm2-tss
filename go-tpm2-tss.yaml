@@ -9,6 +9,7 @@ GENERATOR:
     - tss2-tcti-mssim
     - tss2-tcti-device
     - tss2-mu
+    - tss2-fapi
     - tss2-tctildr
     - tss2-rc
     - tss2-sys
@@ -24,6 +25,7 @@ GENERATOR:
     - tss2/tss2_tcti.h
     - tss2/tss2_tctildr.h
     - tss2/tss2_tcti_mssim.h
+    - tss2/tss2_tcti_tbs.h
     - tss2/tss2_tpm2_types.h
 
 PARSER:
@@ -62,7 +64,12 @@ TRANSLATOR:
       - {transform: export}
       - {action: ignore, from: "^TSS2_ABI_VERSION_CURRENT"}
       - {action: ignore, from: "^__flexarr"}
+      - {action: ignore, from: "^__pthread_cond_s"}
       - {action: ignore, from: "^__PTHREAD_RWLOCK_ELISION_EXTRA"}
+      - {action: ignore, from: "^__GO__"}
+      - {action: ignore, from: ".*select.*"}
+      - {action: ignore, from: "^q.cvt.*"}
+      - {action: ignore, from: "^str.*"}
       - {action: ignore, from: "^(PRI|SCN)[diouxX].*"}
       - {action: accept, from: "^.*"}
     const: []
