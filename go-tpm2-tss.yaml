@@ -37,14 +37,14 @@ PARSER:
     - c/include/tss2/tss2_mu.h
     - c/include/tss2/tss2_rc.h
     - c/include/tss2/tss2_sys.h
-    - c/include/tss2/tss2_tcti_cmd.h
     - c/include/tss2/tss2_tcti_device.h
     - c/include/tss2/tss2_tcti.h
     - c/include/tss2/tss2_tctildr.h
     - c/include/tss2/tss2_tcti_mssim.h
-    - c/include/tss2/tss2_tcti_swtpm.h
     - c/include/tss2/tss2_tcti_tbs.h
     - c/include/tss2/tss2_tpm2_types.h
+    #- c/include/tss2/tss2_tcti_swtpm.h
+    #- c/include/tss2/tss2_tcti_cmd.h
     #- c/include/tss2/tss2_tcti_pcap.h
 
 TRANSLATOR:
