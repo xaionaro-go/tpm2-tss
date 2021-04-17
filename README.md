@@ -28,7 +28,7 @@ Currently, the package expects libtss2 of version 2.3.2 be installed.
 
 ```sh
 apt-get install -y libtss2-dev
-go get -d -u github.com/xaionaro-go/tpm2-tss/...
+go get -d github.com/xaionaro-go/tpm2-tss/...
 cd $(go env GOPATH)/src/github.com/xaionaro-go/tpm2-tss
 git submodule update --init --recursive
 ```
