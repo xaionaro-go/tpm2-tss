@@ -16,7 +16,7 @@ This work is published from:
   Ireland</span>".
 </p>
 
-[![GoDoc](https://godoc.org/github.com/xaionaro-go/tpm2-tss?status.svg)](https://pkg.go.dev/github.com/xaionaro-go/tpm2-tss?tab=doc)
+[![GoDoc](https://godoc.org/github.com/xaionaro-go/tpm2-tss?status.svg)](https://pkg.go.dev/github.com/xaionaro-go/tpm2-tss/go_tpm2_tss?tab=doc)
 
 # About
 
