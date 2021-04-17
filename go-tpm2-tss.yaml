@@ -56,8 +56,12 @@ TRANSLATOR:
   ConstRules:
     defines: eval
   PtrTips:
-    function:
-      - {target: ".*", tips: [ref]}
+    struct:
+      - {target: ".*", tips: [arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr]}
+    global:
+      - {target: ".*", tips: [ref, arr, arr, arr, arr]}
+  MemTips:
+    - {target: ".*", self: raw}
   Rules:
     global:
       - {transform: lower}
