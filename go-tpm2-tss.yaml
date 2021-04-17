@@ -57,10 +57,11 @@ TRANSLATOR:
     struct:
       - {target: ".*", tips: [arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr]}
     function:
-      - {target: ".*(Init|Final|Free|TctiLdr).*", tips: [sref, sref, sref, sref]}
+      - {target: ".*(Init|Final|Free|TctiLdr|Esys_GetPollHandles).*", tips: [sref, sref, sref, sref]}
       - {target: ".*", tips: [sref, arr, arr, arr, arr]}
   MemTips:
-    - {target: "^TPM.*", self: 0}
+    - {target: "^(TSS2_RC_HANDLER|TSS2_TCTI_INFO)", self: raw}
+    - {target: "^(TPM|TSS|Tss|Esys).*", self: 0}
     - {target: ".*", self: raw}
   TypeTips:
     function:
