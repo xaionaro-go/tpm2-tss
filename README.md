@@ -24,7 +24,7 @@ This is very stupid CGo bindings for [tpm2-tss](https://github.com/tpm2-software
 
 # Prepare
 
-```
+```sh
 apt-get install -y libtss2-dev
 go get -d -u github.com/xaionaro-go/tpm2-tss/...
 cd $(go env GOPATH)/src/github.com/xaionaro-go/tpm2-tss
