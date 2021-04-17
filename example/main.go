@@ -11,7 +11,6 @@ func main() {
 	var ectx *go_tpm2_tss.EsysContext
 
 	pcrIndex := go_tpm2_tss.EsysTr(go_tpm2_tss.EsysTrPcr0)
-	fmt.Printf("D: %#+v\n", go_tpm2_tss.TpmlDigestValues{})
 	digests := []go_tpm2_tss.TpmlDigestValues{{
 		Count: 1,
 		Digests: [16]go_tpm2_tss.TpmtHa{
@@ -23,8 +22,14 @@ func main() {
 	}}
 
 	var rc go_tpm2_tss.Tss2Rc
+	var tcti *go_tpm2_tss.Tss2TctiContext
 
-	rc = go_tpm2_tss.EsysInitialize(&ectx, nil, &go_tpm2_tss.Tss2AbiVersion{
+	rc = go_tpm2_tss.Tss2TctildrInitialize("", &tcti)
+	if rc != go_tpm2_tss.Tss2RcSuccess {
+		panic(fmt.Sprintf("0x%08X", rc))
+	}
+
+	rc = go_tpm2_tss.EsysInitialize(&ectx, tcti, &go_tpm2_tss.Tss2AbiVersion{
 		Tsscreator: 1,
 		Tssfamily:  2,
 		Tsslevel:   1,
@@ -38,4 +43,6 @@ func main() {
 	if rc != go_tpm2_tss.Tss2RcSuccess {
 		panic(fmt.Sprintf("0x%08X", rc))
 	}
+
+	fmt.Println("SUCCESS")
 }

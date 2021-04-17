@@ -60,7 +60,7 @@ TRANSLATOR:
       - {target: "Extend", tips: [sref, arr, arr, arr, arr, arr, arr, arr, arr]}
       - {target: "s(Async)?$", tips: [sref, ref, ref, ref, ref, ref, ref]}
       - {target: ".*(Incremental|Parameters|Esys_EventSequenceComplete|PCR_Event|PCR_Read).*", tips: [sref, ref, ref, ref, ref, ref, ref]}
-      - {target: ".*(Init|Create|Final|Finish|Free|TctiLdr|Get|Read|[aA]ctivate|Change|Duplicate|Sign|Make|crypt|Serialize|Esys_GetTcti|[sS]eal|Close|Gen|wrap|[Ii]mport|Esys_HMAC|Sequence|Esys_Hash|Certify|Quote).*", tips: [sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref]}
+      - {target: ".*(Init|Create|Final|[Ll]oad|Finish|Free|TctiLdr|Get|Read|[aA]ctivate|Change|Duplicate|Sign|Make|crypt|Serialize|Esys_GetTcti|[sS]eal|Close|Gen|wrap|[Ii]mport|Esys_HMAC|Sequence|Esys_Hash|Certify|Quote).*", tips: [sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref]}
       - {target: ".*", tips: [sref, arr, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref, sref]}
   MemTips:
     - {target: "^(TSS2_RC_HANDLER|TSS2_TCTI_INFO|TPML_ALG)", self: raw}
