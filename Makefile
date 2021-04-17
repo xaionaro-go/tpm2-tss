@@ -16,7 +16,7 @@ hacks:
 	sed -r -e 's/conf \*string/conf string/g' -e 's/name \*string, conf \*string/name string, conf string/' -e 's/name \*string/name string/g' -i go_tpm2_tss/go_tpm2_tss.go
 	sed -r -e 's/todolist \[\]\*TpmlAlg/todolist *[]TpmlAlg/g' -e 's/unsafe.Pointer\(&todolist\)/unsafe.Pointer(todolist)/g' -e 's/, ctodolist([)])/, \&ctodolist\1/g' -e 's/Tss2_Sys_IncrementalSelfTest_Complete\(csyscontext, &ctodolist\)/Tss2_Sys_IncrementalSelfTest_Complete(csyscontext, ctodolist)/g' -i go_tpm2_tss/go_tpm2_tss.go
 	#sed -r -e 's/c(curveid|eventdata), c(digest|parameter)s/c\1, \&c\2s/g' -i go_tpm2_tss/go_tpm2_tss.go
-	sed -r -e 's/s \[\]\*/s *[]/g' -i go_tpm2_tss/go_tpm2_tss.go
+	sed -r -e 's/(s|out) \[\]\*/\1  *[]/g' -i go_tpm2_tss/go_tpm2_tss.go
 	sed -r -e '/ccurveid/{n; s/unsafe.Pointer\(&([a-z]*)s\)/unsafe.Pointer(\1s)/g}' -e '/cesyscontext/{n; s/unsafe.Pointer\(&([a-z]*)s\)/unsafe.Pointer(\1s)/g}' -i go_tpm2_tss/go_tpm2_tss.go
 	sed -r -e '/copy.*unsafe.Pointer\(parameters\)/{n; s/, cparameters/, \&cparameters/}' -i go_tpm2_tss/go_tpm2_tss.go
 

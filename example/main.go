@@ -11,6 +11,7 @@ func main() {
 	var ectx *go_tpm2_tss.EsysContext
 
 	pcrIndex := go_tpm2_tss.EsysTr(go_tpm2_tss.EsysTrPcr0)
+	fmt.Printf("D: %#+v\n", go_tpm2_tss.TpmlDigestValues{})
 	digests := []go_tpm2_tss.TpmlDigestValues{{
 		Count: 1,
 		Digests: [16]go_tpm2_tss.TpmtHa{
