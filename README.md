@@ -24,6 +24,8 @@ This is very stupid CGo bindings for [tpm2-tss](https://github.com/tpm2-software
 
 # Prepare
 
+Currently, the package expects libtss2 of version 2.3.2 be installed.
+
 ```sh
 apt-get install -y libtss2-dev
 go get -d -u github.com/xaionaro-go/tpm2-tss/...
