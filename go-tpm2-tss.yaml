@@ -56,11 +56,11 @@ TRANSLATOR:
   PtrTips:
     struct:
       - {target: ".*", tips: [arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr, arr]}
-    global:
-      - {target: ".*", tips: [ref, arr, arr, arr, arr]}
+    function:
+      - {target: ".*(Init|Final|Free|TctiLdr).*", tips: [sref, sref, sref, sref]}
+      - {target: ".*", tips: [sref, arr, arr, arr, arr]}
   MemTips:
     - {target: "^TPM.*", self: 0}
-    - {target: "^TSS2_TCTI_INFO", self: 0}
     - {target: ".*", self: raw}
   TypeTips:
     function:
@@ -69,22 +69,19 @@ TRANSLATOR:
     global:
       - {transform: lower}
       - {transform: export}
-      - {action: ignore, from: "^TSS2_ABI_VERSION_CURRENT"}
-      - {action: ignore, from: "^__"}
-      - {action: ignore, from: ".*select.*"}
-      - {action: ignore, from: "^q.cvt.*"}
-      - {action: ignore, from: "^str.*"}
-      - {action: ignore, from: "^(on_|at|)exit.*"}
-      - {action: ignore, from: "^qsort.*"}
-      - {action: ignore, from: "^bsearch.*"}
-      - {action: ignore, from: "^(m|re|c)alloc.*"}
-      - {action: ignore, from: "^(PRI|SCN)[diouxX].*"}
       - {action: ignore, from: "^Tss2_Tcti_Tbs_Init"}
       - {action: ignore, from: "^Tss2_MU_TPMU_ENCRYPTED_SECRET_(Marshal|Unmarshal)"}
       #- {action: ignore, from: "^TSS2_TCTI_(INFO_FUNC|TRANSMIT_FCN|RECEIVE_FCN|FINALIZE_FCN|CANCEL_FCN|GET_POLL_HANDLES_FCN|SET_LOCALITY_FCN|MAKE_STICKY_FCN|INIT_FUNC).*"}
+      - {action: accept, from: "^(Tss2|TSS2|TPM|Esys).*"}
+    const:
+      - {action: ignore, from: "^__"}
+      - {action: ignore, from: "^TSS2_ABI_VERSION_CURRENT"}
+      - {action: ignore, from: "^q.cvt.*"}
+      - {action: ignore, from: "^(PRI|SCN)[diouxX].*"}
       - {action: accept, from: "^.*"}
-    const: []
-    type: []
+    type:
+      - {action: ignore, from: "^__"}
+      - {action: accept, from: "^.*"}
     private:
       - {transform: unexport}
     post-global:
