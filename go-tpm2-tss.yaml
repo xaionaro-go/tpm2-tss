@@ -59,6 +59,8 @@ TRANSLATOR:
     global:
       - {target: ".*", tips: [ref, arr, arr, arr, arr]}
   MemTips:
+    - {target: "^TPM.*", self: 0}
+    - {target: "^TSS2_TCTI_INFO", self: 0}
     - {target: ".*", self: raw}
   TypeTips:
     function:
