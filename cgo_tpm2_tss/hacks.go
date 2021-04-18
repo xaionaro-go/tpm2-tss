@@ -1,6 +1,4 @@
-package go_tpm2_tss
-
-import "C"
+package cgo_tpm2_tss
 
 const (
 	Tss2TctiRcLayer  = 10 << Tss2RcLayerShift

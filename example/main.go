@@ -4,43 +4,43 @@ import (
 	"fmt"
 
 	"github.com/google/go-tpm/tpm2"
-	"github.com/xaionaro-go/tpm2-tss/go_tpm2_tss"
+	"github.com/xaionaro-go/tpm2-tss/cgo_tpm2_tss"
 )
 
 func main() {
-	var ectx *go_tpm2_tss.EsysContext
+	var ectx *cgo_tpm2_tss.EsysContext
 
-	pcrIndex := go_tpm2_tss.EsysTr(go_tpm2_tss.EsysTrPcr0)
-	digests := []go_tpm2_tss.TpmlDigestValues{{
+	pcrIndex := cgo_tpm2_tss.EsysTr(cgo_tpm2_tss.EsysTrPcr0)
+	digests := []cgo_tpm2_tss.TpmlDigestValues{{
 		Count: 1,
-		Digests: [16]go_tpm2_tss.TpmtHa{
+		Digests: [16]cgo_tpm2_tss.TpmtHa{
 			{
-				Hashalg: go_tpm2_tss.TpmiAlgHash(tpm2.AlgSHA1),
-				Digest:  go_tpm2_tss.TpmuHa{1, 2, 3, 4},
+				Hashalg: cgo_tpm2_tss.TpmiAlgHash(tpm2.AlgSHA1),
+				Digest:  cgo_tpm2_tss.TpmuHa{1, 2, 3, 4},
 			},
 		},
 	}}
 
-	var rc go_tpm2_tss.Tss2Rc
-	var tcti *go_tpm2_tss.Tss2TctiContext
+	var rc cgo_tpm2_tss.Tss2Rc
+	var tcti *cgo_tpm2_tss.Tss2TctiContext
 
-	rc = go_tpm2_tss.Tss2TctildrInitialize("", &tcti)
-	if rc != go_tpm2_tss.Tss2RcSuccess {
+	rc = cgo_tpm2_tss.Tss2TctildrInitialize("", &tcti)
+	if rc != cgo_tpm2_tss.Tss2RcSuccess {
 		panic(fmt.Sprintf("0x%08X", rc))
 	}
 
-	rc = go_tpm2_tss.EsysInitialize(&ectx, tcti, &go_tpm2_tss.Tss2AbiVersion{
+	rc = cgo_tpm2_tss.EsysInitialize(&ectx, tcti, &cgo_tpm2_tss.Tss2AbiVersion{
 		Tsscreator: 1,
 		Tssfamily:  2,
 		Tsslevel:   1,
 		Tssversion: 108,
 	})
-	if rc != go_tpm2_tss.Tss2RcSuccess {
+	if rc != cgo_tpm2_tss.Tss2RcSuccess {
 		panic(fmt.Sprintf("0x%08X", rc))
 	}
 
-	rc = go_tpm2_tss.EsysPcrExtend(ectx, pcrIndex, go_tpm2_tss.EsysTrPassword, go_tpm2_tss.EsysTrNone, go_tpm2_tss.EsysTrNone, digests)
-	if rc != go_tpm2_tss.Tss2RcSuccess {
+	rc = cgo_tpm2_tss.EsysPcrExtend(ectx, pcrIndex, cgo_tpm2_tss.EsysTrPassword, cgo_tpm2_tss.EsysTrNone, cgo_tpm2_tss.EsysTrNone, digests)
+	if rc != cgo_tpm2_tss.Tss2RcSuccess {
 		panic(fmt.Sprintf("0x%08X", rc))
 	}
 
